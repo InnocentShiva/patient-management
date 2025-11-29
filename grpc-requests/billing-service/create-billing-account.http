@@ -5,7 +5,3 @@ GRPC localhost:9001/BillingService/CreateBillingAccount
     "name"     : "John Doe",
     "email"    : "john.doe@example.com"
 }
-
-{
-
-}

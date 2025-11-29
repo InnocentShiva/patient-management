@@ -1,1 +1,1 @@
-GRPC localhost:9001/BillingService/CreateBillingAccount
+GRPC localhost:9001/BillingService/CreateBillingAccountGRPC localhost:9001/BillingService/CreateBillingAccount

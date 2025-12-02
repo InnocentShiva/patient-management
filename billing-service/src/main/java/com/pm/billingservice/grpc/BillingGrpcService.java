@@ -21,7 +21,7 @@ public class BillingGrpcService extends BillingServiceGrpc.BillingServiceImplBas
         // Business logic -
 
         billing.BillingResponse response = billing.BillingResponse.newBuilder()
-                .setAccountId("123456456")
+                .setAccountId(billingRequest.getPatientId())
                 .setStatus("ACTIVE")
                 .build();
         responseObserver.onNext(response);

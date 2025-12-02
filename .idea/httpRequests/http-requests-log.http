@@ -1,1 +1,77 @@
+POST http://localhost:4000/patients
+Content-Type: application/json
+Content-Length: 189
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Shial Abbotabadi",
+  "email": "changumangu@dfg.com",
+  "address": "75 Mohmd. Younus street konfu, Agerbaijan",
+  "dateOfBirth": "1978-09-09",
+  "registeredDate": "2025-12-02"
+}
+
+<> 2025-12-02T192642.200.json
+
+###
+
+POST http://localhost:4000/patients
+Content-Type: application/json
+Content-Length: 171
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Jackie Chan",
+  "email": "jackychan@dfg.com",
+  "address": "456 shin juong street Guanjhou",
+  "dateOfBirth": "1978-09-09",
+  "registeredDate": "2025-12-02"
+}
+
+<> 2025-12-02T191910.200.json
+
+###
+
+POST http://localhost:4000/patients
+Content-Type: application/json
+Content-Length: 185
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Misa Sarabdeep with billing account",
+  "email": "abdc900@dfg.com",
+  "address": "123 Main Street Street",
+  "dateOfBirth": "1995-09-09",
+  "registeredDate": "2025-11-25"
+}
+
+<> 2025-12-01T210856.200.json
+
+###
+
+POST http://localhost:4001/patients
+Content-Type: application/json
+Content-Length: 185
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Misa Sarabdeep with billing account",
+  "email": "abdc900@dfg.com",
+  "address": "123 Main Street Street",
+  "dateOfBirth": "1995-09-09",
+  "registeredDate": "2025-11-25"
+}
+
+<> 2025-11-29T194155.404.json
+
+###
+
 GRPC localhost:9001/BillingService/CreateBillingAccountGRPC localhost:9001/BillingService/CreateBillingAccount

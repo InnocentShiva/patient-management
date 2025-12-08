@@ -1,0 +1,43 @@
+services:
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    container_name: kafka-broker-new
+    ports:
+      - "9094:9094"
+    environment:
+      # --- CRITICAL FIXES FOR CONFLUENT ENTRYPOINT ---
+      - CLUSTER_ID=y54L-Q3L83SgC-jWkGjNZA
+      - KAFKA_CLUSTER_ID=y54L-Q3L83SgC-jWkGjNZA
+
+      # *** FIX: Use the standard writable data directory path ***
+      - KAFKA_LOG_DIRS=/var/lib/kafka/data
+
+      # --- KRaft Configuration (Confluent Style) ---
+      - KAFKA_NODE_ID=1
+      - KAFKA_PROCESS_ROLES=broker,controller
+      - KAFKA_CONTROLLER_QUORUM_VOTERS=1@kafka-broker-new:9093
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1
+      - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=1
+      - KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS=0
+
+      # --- Listeners ---
+      - KAFKA_LISTENERS=CONTROLLER://:9093,INTERNAL://:9092,EXTERNAL://:9094
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_ADVERTISED_LISTENERS=INTERNAL://kafka-broker-new:9092,EXTERNAL://localhost:9094
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INTERNAL
+      - KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER
+
+    volumes:
+      # *** FIX: Map the volume to the standard writable directory ***
+      - kafka_data:/var/lib/kafka/data
+    networks:
+      - internal
+
+volumes:
+  kafka_data:
+    driver: local
+
+networks:
+  internal:
+    driver: bridge

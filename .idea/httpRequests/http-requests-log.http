@@ -1,5 +1,43 @@
 POST http://localhost:4000/patients
 Content-Type: application/json
+Content-Length: 204
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Blessing Obedayu",
+  "email": "blessing17@dfg.com",
+  "address": "111 Yohail Mosef street Near Town hall, Tel Aviv - Israel",
+  "dateOfBirth": "1978-09-09",
+  "registeredDate": "2025-12-02"
+}
+
+<> 2025-12-09T005438.200.json
+
+###
+
+POST http://localhost:4000/patients
+Content-Type: application/json
+Content-Length: 204
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Blessing Obedayu",
+  "email": "blessing16@dfg.com",
+  "address": "111 Yohail Mosef street Near Town hall, Tel Aviv - Israel",
+  "dateOfBirth": "1978-09-09",
+  "registeredDate": "2025-12-02"
+}
+
+<> 2025-12-09T004847.200.json
+
+###
+
+POST http://localhost:4000/patients
+Content-Type: application/json
 Content-Length: 205
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
 Accept-Encoding: br, deflate, gzip, x-gzip

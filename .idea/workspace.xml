@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8eed4ec7-45fb-4385-a1a4-9dcd08e29d3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/kafka/KafkaProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/proto/patient_event.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-service/src/main/java/com/pm/analyticsservice/kafka/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-service/src/main/proto/patient_event.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,50 +61,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.billing-service.executor": "Run",
-    "Docker.kafka-broker-compatible.executor": "Run",
-    "Docker.kafka-broker-new.executor": "Run",
-    "Docker.kafka.executor": "Run",
-    "Docker.patient-service-db.executor": "Run",
-    "Docker.patient-service.executor": "Run",
-    "HTTP Request.create-billing-account | #1.executor": "Run",
-    "HTTP Request.create-patient | Post request for creating new patient record.executor": "Run",
-    "Maven.patient-service [clean].executor": "Run",
-    "Maven.patient-service [compile].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Notification.DisplayName-DoNotAsk-WindowsDefender": "Microsoft Defender may affect IDE",
-    "Notification.DoNotAsk-WindowsDefender": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.billing-service.executor": "Run",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "kafka-producer-topic",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/java-project/java-workspace/patient-management/patient-service/src/main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "bigdataide_conn_settings",
-    "settings.editor.splitter.proportion": "0.1992647",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.analytics-service.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.billing-service.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.kafka-broker-compatible.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.kafka-broker-new.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.kafka.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.patient-service-db.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.patient-service.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.create-billing-account | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.create-patient | Post request for creating new patient record.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.analytics-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.analytics-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.patient-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.patient-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-WindowsDefender&quot;: &quot;Microsoft Defender may affect IDE&quot;,
+    &quot;Notification.DoNotAsk-WindowsDefender&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.billing-service.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kafka-consumer-analytics&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/java-project/java-workspace/patient-management/analytics-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;bigdataide_conn_settings&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.1992647&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\java-project\java-workspace\patient-management\analytics-service" />
+      <recent name="C:\java-project\java-workspace\patient-management\analytics-service\src\main\proto" />
       <recent name="C:\java-project\java-workspace\patient-management\patient-service\src\main" />
     </key>
   </component>
@@ -124,12 +132,19 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.patient-service">
+  <component name="RunManager" selected="Docker.analytics-service">
     <configuration name="create-billing-account | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-requests/billing-service/create-billing-account.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="create-patient | Post request for creating new patient record" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" executionIdentifier="Post request for creating new patient record" runType="Run single request">
       <method v="2" />
+    </configuration>
+    <configuration name="AnalyticsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="analytics-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pm.analyticsservice.AnalyticsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="PatientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -147,6 +162,33 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="analytics-service" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="analytics-service:latest" />
+          <option name="containerName" value="analytics-service" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_KAFKA_BOOTSTRAP_SERVERS" />
+                <option name="value" value="kafka-broker-new:9092" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="4002" />
+                <option name="hostPort" value="4002" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal" />
+          <option name="sourceFilePath" value="analytics-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <configuration name="billing-service" type="docker-deploy" factoryName="dockerfile">
       <deployment type="dockerfile">
@@ -349,12 +391,14 @@
     </configuration>
     <list>
       <item itemvalue="Docker.patient-service" />
+      <item itemvalue="Docker.analytics-service" />
       <item itemvalue="Docker.billing-service" />
       <item itemvalue="Docker.kafka" />
       <item itemvalue="Docker.kafka-broker-new" />
       <item itemvalue="Docker.patient-service-db" />
       <item itemvalue="HTTP Request.create-patient | Post request for creating new patient record" />
       <item itemvalue="HTTP Request.create-billing-account | #1" />
+      <item itemvalue="Spring Boot.AnalyticsServiceApplication" />
       <item itemvalue="Spring Boot.PatientServiceApplication" />
       <item itemvalue="Spring Boot.billing-service" />
     </list>
@@ -387,6 +431,7 @@
       <workItem from="1765033405637" duration="10146000" />
       <workItem from="1765142630719" duration="2419000" />
       <workItem from="1765199456084" duration="329000" />
+      <workItem from="1765284708846" duration="341000" />
     </task>
     <servers />
   </component>

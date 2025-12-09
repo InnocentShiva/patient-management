@@ -1,4 +1,5 @@
 ### GET request to get all patients
-GET http://localhost:4000/patients
-
+# Dev region testing api after enabling the binding-port = 4000/4000 in run configuration - GET http://localhost:4000/patients
+# New API after enabling the api-gateway and disabling the external access of patient-service microservice
+GET http://localhost:4004/api/patients
 ###

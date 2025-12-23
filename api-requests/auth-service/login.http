@@ -1,6 +1,7 @@
 ### Login Request to retreive the token
 # For individual container testing -POST http://localhost:4005/login
-POST http://localhost:4004/auth/login
+#POST http://localhost:4004/auth/login
+POST http://lb-51a59afd.elb.localhost.localstack.cloud:4004/auth/login
 Content-type: application/json
 
 {

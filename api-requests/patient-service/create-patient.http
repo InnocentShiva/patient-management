@@ -1,10 +1,12 @@
 ### Post request for creating new patient record
-POST http://localhost:4000/patients
+#POST http://localhost:4000/patients
+POST http://lb-51a59afd.elb.localhost.localstack.cloud:4004/api/patients
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
   "name": "Blessing Obedayu",
-  "email": "blessing17@dfg.com",
+  "email": "blessing18@dfg.com",
   "address": "111 Yohail Mosef street Near Town hall, Tel Aviv - Israel",
   "dateOfBirth": "1978-09-09",
   "registeredDate": "2025-12-02"

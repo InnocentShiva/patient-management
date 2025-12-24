@@ -1,3 +1,23 @@
+GET http://localhost:4004/api/patients?page=1&size=5&sort=asc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckB0ZXN0LmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc2NjU0Mjk4NiwiZXhwIjoxNzY2NTc4OTg2fQ.6SXOIY8v66npHQmHI-G90K1oQYe_L1cW7RL4OWOae80
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-12-24T130347.200.json
+
+###
+
+GET http://localhost:4004/api/patients?page=1&size=5&sort=asc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckB0ZXN0LmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc2NjU0Mjk4NiwiZXhwIjoxNzY2NTc4OTg2fQ.6SXOIY8v66npHQmHI-G90K1oQYe_L1cW7RL4OWOae80
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-12-24T130010.200.json
+
+###
+
 GET http://localhost:4004/api/patients?page=1&size=5&sort=asc&sortField=dateOfBirth&searchValue=Blessing
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckB0ZXN0LmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc2NjU0Mjk4NiwiZXhwIjoxNzY2NTc4OTg2fQ.6SXOIY8v66npHQmHI-G90K1oQYe_L1cW7RL4OWOae80
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
@@ -569,32 +589,4 @@ Accept: */*
 }
 
 <> 2025-12-12T000601.200.json
-
-###
-
-GET http://localhost:4004/api/patients
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2025-12-09T202127.200.json
-
-###
-
-POST http://localhost:4000/patients
-Content-Type: application/json
-Content-Length: 204
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.4
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "name": "Blessing Obedayu",
-  "email": "blessing17@dfg.com",
-  "address": "111 Yohail Mosef street Near Town hall, Tel Aviv - Israel",
-  "dateOfBirth": "1978-09-09",
-  "registeredDate": "2025-12-02"
-}
-
-<> 2025-12-09T005438.200.json
 

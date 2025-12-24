@@ -1,7 +1,7 @@
 ### GET request to get all patients
 # Dev region testing api after enabling the binding-port = 4000/4000 in run configuration - GET http://localhost:4000/patients
 # New API after enabling the api-gateway and disabling the external access of patient-service microservice
-#GET http://localhost:4004/api/patients
-GET http://lb-51a59afd.elb.localhost.localstack.cloud:4004/api/patients
+GET http://localhost:4004/api/patients?page=1&size=5&sort=asc&sortField=dateOfBirth&searchValue=Blessing
+#GET http://lb-51a59afd.elb.localhost.localstack.cloud:4004/api/patients
 Authorization: Bearer {{token}}
 ###

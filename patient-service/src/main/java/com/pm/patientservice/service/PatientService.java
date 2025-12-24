@@ -1,5 +1,6 @@
 package com.pm.patientservice.service;
 
+import com.pm.patientservice.dto.PagedPatientResponseDTO;
 import com.pm.patientservice.dto.PatientRequestDTO;
 import com.pm.patientservice.dto.PatientResponseDTO;
 import com.pm.patientservice.exception.EmailAlreadyExistsException;
@@ -9,6 +10,10 @@ import com.pm.patientservice.kafka.KafkaProducer;
 import com.pm.patientservice.mapper.PatientMapper;
 import com.pm.patientservice.model.Patient;
 import com.pm.patientservice.repository.PatientRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -28,12 +33,34 @@ public class PatientService {
         this.kafkaProducer = kafkaProducer;
     }
 
-    public List<PatientResponseDTO> getPatients() {
-        List<Patient> patients = patientRepository.findAll();
+    public PagedPatientResponseDTO getPatients(int page, int size, String sort, String sortField, String searchValue) {
+// Pageable reads first page as index no. 0 hence applied - 1  to extract the first page first
+        Pageable pageable = PageRequest.of(page - 1, size,
+                sort.equalsIgnoreCase("desc")
+                        ? Sort.by(sortField).descending()
+                        :Sort.by(sortField).ascending());
 
-        List<PatientResponseDTO> patientResponseDTOList = new ArrayList<>();
+        Page<Patient> patientPage;
 
-        return patients.stream().map(PatientMapper::toDTO).toList();
+        if(searchValue==null || searchValue.isBlank()){
+            patientPage = patientRepository.findAll(pageable);
+        } else {
+            patientPage = patientRepository.findByNameContainingIgnoreCase(searchValue, pageable);
+        }
+
+        List<PatientResponseDTO> patientResponseDtos = patientPage.getContent()
+                .stream()
+                .map(PatientMapper :: toDTO)
+                .toList();
+
+        return new PagedPatientResponseDTO(
+                patientResponseDtos,
+                patientPage.getNumber() + 1,
+                patientPage.getSize(),
+                patientPage.getTotalPages(),
+                (int)patientPage.getTotalElements()
+        );
+
 
     }
 

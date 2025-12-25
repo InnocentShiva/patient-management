@@ -2,8 +2,19 @@ server:
   port: 4004
 
 spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
   cloud:
     gateway:
+      default-filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.burstCapacity: 5
+            redis-rate-limiter.replenishRate: 5
+#            What the above param do is - in a second 5 request can be done by same ip and then if it exceeds it will not get any response until the next 1 second . After that reset will happen and again user can do next 5 request in a single sencond
+            key-resolver: "#{@ipKeyResolver}"
       routes:
 #          input address now - http://localhost:4004/auth/login
 #          After filter Api becomes - http://auth-service:4005/login

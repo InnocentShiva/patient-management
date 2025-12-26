@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8eed4ec7-45fb-4385-a1a4-9dcd08e29d3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/pm/apigateway/config/RateLimiterConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/kafka/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/billing-service/src/main/proto/billing_account_event.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/proto/billing_account_event.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T000601.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T000608.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-tests/src/test/java/PatientIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/integration-tests/src/test/java/PatientIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-tests/target/test-classes/PatientIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/integration-tests/target/test-classes/PatientIntegrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/billing-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/billing-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/grpc/BillingServiceGrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/grpc/BillingServiceGrpcClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/kafka/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/kafka/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,11 +111,11 @@
     "Spring Boot.billing-service.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "rate-limiting",
+    "git-widget-placeholder": "circuit-breaker",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/java-project/java-workspace/patient-management/auth-service",
+    "last_opened_file_path": "C:/java-project/java-workspace/patient-management/billing-service/src/main/proto",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,11 +137,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\java-project\java-workspace\patient-management\billing-service\src\main\proto" />
       <recent name="C:\java-project\java-workspace\patient-management\auth-service" />
       <recent name="C:\java-project\java-workspace\patient-management\api-gateway" />
       <recent name="C:\java-project\java-workspace\patient-management\analytics-service" />
       <recent name="C:\java-project\java-workspace\patient-management\analytics-service\src\main\proto" />
-      <recent name="C:\java-project\java-workspace\patient-management\patient-service\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -156,7 +164,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PatientIntegrationTest.shouldReturn429AfterLimitExceeded">
+  <component name="RunManager" selected="Docker.billing-service">
     <configuration name="LocalStack" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -370,11 +378,19 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="billing-service" type="docker-deploy" factoryName="dockerfile">
+    <configuration name="billing-service" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="billing-service:latest" />
           <option name="containerName" value="billing-service" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_KAFKA_BOOTSTRAP_SERVERS" />
+                <option name="value" value="kafka-broker-new:9092" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
@@ -616,10 +632,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.create-patient | Post request for creating new patient record" />
+        <item itemvalue="HTTP Request.login | Login Request to retreive the token" />
         <item itemvalue="JUnit.PatientIntegrationTest.shouldReturn429AfterLimitExceeded" />
         <item itemvalue="HTTP Request.get-patients | GET request to get all patients" />
-        <item itemvalue="HTTP Request.login | Login Request to retreive the token" />
-        <item itemvalue="HTTP Request.create-patient | Post request for creating new patient record" />
         <item itemvalue="JUnit.All in integration-tests" />
       </list>
     </recent_temporary>
@@ -652,7 +668,7 @@
       <workItem from="1765470946171" duration="3807000" />
       <workItem from="1765474832251" duration="6304000" />
       <workItem from="1765532599016" duration="20913000" />
-      <workItem from="1765878997374" duration="76326000" />
+      <workItem from="1765878997374" duration="95473000" />
     </task>
     <servers />
   </component>
@@ -664,7 +680,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/kafka/KafkaProducer.java</url>
-          <line>31</line>
+          <line>32</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

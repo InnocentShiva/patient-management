@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8eed4ec7-45fb-4385-a1a4-9dcd08e29d3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/kafka/KafkaConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/billing-service/src/main/proto/billing_account_event.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/proto/billing_account_event.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T000601.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T000608.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitoring/prometheus.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/patient-service/create-patient.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/billing-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/billing-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/grpc/BillingServiceGrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/grpc/BillingServiceGrpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/kafka/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/kafka/KafkaProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,11 +66,13 @@
     "Docker.auth-service-db.executor": "Run",
     "Docker.auth-service.executor": "Run",
     "Docker.billing-service.executor": "Run",
+    "Docker.grafana.executor": "Run",
     "Docker.kafka-broker-compatible.executor": "Run",
     "Docker.kafka-broker-new.executor": "Run",
     "Docker.kafka.executor": "Run",
     "Docker.patient-service-db.executor": "Run",
     "Docker.patient-service.executor": "Run",
+    "Docker.prometheus.executor": "Run",
     "Docker.redis.executor": "Run",
     "HTTP Request.create-billing-account | #1.executor": "Run",
     "HTTP Request.create-patient | Post request for creating new patient record.executor": "Run",
@@ -164,7 +156,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.billing-service">
+  <component name="RunManager" selected="Docker.grafana">
     <configuration name="LocalStack" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -409,6 +401,24 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="grafana" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="grafana/grafana:latest" />
+          <option name="containerName" value="grafana" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="3000" />
+                <option name="hostPort" value="3000" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="kafka-broker-new" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -546,6 +556,18 @@
                 <option name="value" value="9001" />
               </DockerEnvVarImpl>
               <DockerEnvVarImpl>
+                <option name="name" value="SPRING_CACHE_TYPE" />
+                <option name="value" value="redis" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATA_REDIS_HOST" />
+                <option name="value" value="redis" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATA_REDIS_PORT" />
+                <option name="value" value="6379" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
                 <option name="name" value="SPRING_DATASOURCE_PASSWORD" />
                 <option name="value" value="password" />
               </DockerEnvVarImpl>
@@ -569,22 +591,44 @@
                 <option name="name" value="SPRING_SQL_INT_MODE" />
                 <option name="value" value="always" />
               </DockerEnvVarImpl>
-              <DockerEnvVarImpl>
-                <option name="name" value="SPRING_CACHE_TYPE" />
-                <option name="value" value="redis" />
-              </DockerEnvVarImpl>
-              <DockerEnvVarImpl>
-                <option name="name" value="SPRING_DATA_REDIS_HOST" />
-                <option name="value" value="redis" />
-              </DockerEnvVarImpl>
-              <DockerEnvVarImpl>
-                <option name="name" value="SPRING_DATA_REDIS_PORT" />
-                <option name="value" value="6379" />
-              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="4000" />
+                <option name="hostPort" value="4000" />
+              </DockerPortBindingImpl>
             </list>
           </option>
           <option name="commandLineOptions" value="--network internal" />
           <option name="sourceFilePath" value="patient-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="prometheus" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="prom/prometheus:latest" />
+          <option name="containerName" value="prometheus" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="9090" />
+                <option name="hostPort" value="9090" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/etc/prometheus/prometheus.yml" />
+                <option name="hostPath" value="C:\java-project\java-workspace\patient-management\monitoring\prometheus.yml" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
         </settings>
       </deployment>
       <method v="2" />
@@ -610,6 +654,8 @@
     <list>
       <item itemvalue="Application.LocalStack" />
       <item itemvalue="Docker.patient-service" />
+      <item itemvalue="Docker.prometheus" />
+      <item itemvalue="Docker.grafana" />
       <item itemvalue="Docker.auth-service" />
       <item itemvalue="Docker.analytics-service" />
       <item itemvalue="Docker.api-gateway" />
@@ -668,7 +714,7 @@
       <workItem from="1765470946171" duration="3807000" />
       <workItem from="1765474832251" duration="6304000" />
       <workItem from="1765532599016" duration="20913000" />
-      <workItem from="1765878997374" duration="95473000" />
+      <workItem from="1765878997374" duration="105736000" />
     </task>
     <servers />
   </component>

@@ -43,8 +43,8 @@ public class PatientService {
     )
     public PagedPatientResponseDTO getPatients(int page, int size, String sort, String sortField, String searchValue) {
 // Pageable reads first page as index no. 0 hence applied - 1  to extract the first page first
-        log.info("[REDIS]: Cache miss - fetching from DB");
-
+//        log.info("[REDIS]: Cache miss - fetching from DB");    --Commenting as this is already handled by aspect type programming for custom metrics
+//    ......Logic to capture metric....
         try{
             Thread.sleep(2000);
         }catch(InterruptedException e){

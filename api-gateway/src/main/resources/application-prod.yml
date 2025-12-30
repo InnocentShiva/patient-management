@@ -2,13 +2,17 @@ server:
   port: 4004
 
 spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
   cloud:
     gateway:
       routes:
         #          input address now - http://localhost:4004/auth/login
         #          After filter Api becomes - http://auth-service:4005/login
         - id: auth-service-route
-          uri: http://host.docker.internal:4005
+          uri: http://auth-service.patient-management.local:4005
           predicates:
             - Path=/auth/**
           filters:
@@ -19,7 +23,7 @@ spring:
         #          API GATEWAY -> http://patient-service:4000/patients    <Output request from api gateway according to rules >
         #          PATIENT SERVICE (SPRING BOOT APP) -> /patients -> Patients Array  <Microservice will read this api when request lands from api gateway to microservice>
         - id: patient-service-route
-          uri: http://host.docker.internal:4000
+          uri: http://patient-service.patient-management.local:4000
           predicates:
             - Path=/api/patients/**
           filters:
@@ -31,14 +35,14 @@ spring:
         #         REST CLIENT -> http://localhost:4004/api-docs/patients
         #         API GATEWAY -> http://patient-service:4000/v3/api-docs
         - id: api-docs-patient-route
-          uri: http://host.docker.internal:4000
+          uri: http://patient-service.patient-management.local:4000
           predicates:
             - Path=/api-docs/patients
           filters:
             - RewritePath=/api-docs/patients,/v3/api-docs
 
         - id: api-docs-auth-route
-          uri: http://host.docker.internal:4005
+          uri: http://auth-service.patient-management.local:4005
           predicates:
             - Path=/api-docs/auth
           filters:

@@ -5,24 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8eed4ec7-45fb-4385-a1a4-9dcd08e29d3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/aspects/PatientServiceMetrics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T000820.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T001826.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T001952.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T155223.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T165725.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T165905.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T182014.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T182155.500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T183600.500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T183724.500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T184314.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T184343.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T184510.500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-12T190020.200.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitoring/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitoring/prometheus-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-22T170212.500.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-22T182947.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-22T183327.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2025-12-22T183846.400.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/pm/patientservice/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/auth-service/login.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/auth-service/login.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/patient-service/get-patients.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/patient-service/get-patients.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cdk.out/localstack.template.json" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/cdk.out/localstack.template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cdk.out/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/cdk.out/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/cdk.out/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/cdk.out/tree.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/localstack-deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/localstack-deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/com/pm/stack/LocalStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/pm/stack/LocalStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/target/classes/com/pm/stack/LocalStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/target/classes/com/pm/stack/LocalStack.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +31,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Dockerfile" />
         <option value="Interface" />
         <option value="HTTP Request" />
         <option value="package-info" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -86,6 +85,7 @@
     "Docker.kafka.executor": "Run",
     "Docker.patient-service-db.executor": "Run",
     "Docker.patient-service.executor": "Run",
+    "Docker.prometheus-prod.executor": "Run",
     "Docker.prometheus.executor": "Run",
     "Docker.redis.executor": "Run",
     "HTTP Request.create-billing-account | #1.executor": "Run",
@@ -117,11 +117,11 @@
     "Spring Boot.billing-service.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "custom__param__for__observability",
+    "git-widget-placeholder": "service-discovery",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/java-project/java-workspace/patient-management/billing-service/src/main/proto",
+    "last_opened_file_path": "C:/java-project/java-workspace/patient-management/monitoring",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,7 +129,7 @@
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/java-project/java-workspace/patient-management/infrastructure/src/main/java/com/pm/Main.java",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "Docker",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.1992647",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
@@ -143,11 +143,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\java-project\java-workspace\patient-management\monitoring" />
       <recent name="C:\java-project\java-workspace\patient-management\billing-service\src\main\proto" />
       <recent name="C:\java-project\java-workspace\patient-management\auth-service" />
       <recent name="C:\java-project\java-workspace\patient-management\api-gateway" />
       <recent name="C:\java-project\java-workspace\patient-management\analytics-service" />
-      <recent name="C:\java-project\java-workspace\patient-management\analytics-service\src\main\proto" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -169,7 +169,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.patient-service">
+  <component name="RunManager" selected="Application.LocalStack">
     <configuration name="LocalStack" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -620,6 +620,16 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="prometheus-prod" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="prometheus-prod:latest" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="monitoring/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="prometheus" type="docker-deploy" factoryName="docker-image" server-name="Docker">
       <deployment type="docker-image">
         <settings>
@@ -668,6 +678,7 @@
       <item itemvalue="Application.LocalStack" />
       <item itemvalue="Docker.patient-service" />
       <item itemvalue="Docker.prometheus" />
+      <item itemvalue="Docker.prometheus-prod" />
       <item itemvalue="Docker.grafana" />
       <item itemvalue="Docker.auth-service" />
       <item itemvalue="Docker.analytics-service" />

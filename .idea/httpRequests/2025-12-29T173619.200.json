@@ -1,0 +1,43 @@
+{
+  "patients": [
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174002",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "address": "789 Oak St, Capital City",
+      "dateOfBirth": "1978-03-12"
+    },
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174003",
+      "name": "Bob Brown",
+      "email": "bob.brown@example.com",
+      "address": "321 Pine St, Springfield",
+      "dateOfBirth": "1982-11-30"
+    },
+    {
+      "id": "223e4567-e89b-12d3-a456-426614174013",
+      "name": "Daniel Lewis",
+      "email": "daniel.lewis@example.com",
+      "address": "456 Cypress St, Capital City",
+      "dateOfBirth": "1976-06-08"
+    },
+    {
+      "id": "223e4567-e89b-12d3-a456-426614174007",
+      "name": "David Wilson",
+      "email": "david.wilson@example.com",
+      "address": "456 Ash St, Capital City",
+      "dateOfBirth": "1975-01-11"
+    },
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174004",
+      "name": "Emily Davis",
+      "email": "emily.davis@example.com",
+      "address": "654 Maple St, Shelbyville",
+      "dateOfBirth": "1995-02-05"
+    }
+  ],
+  "page": 1,
+  "size": 5,
+  "totalPages": 3,
+  "totalElements": 15
+}

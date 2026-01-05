@@ -6,9 +6,9 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "John Doe Kafka Test",
-  "email": "kafka_test123@dfg.com",
-  "address": "AB road Tukhman college, Tel Aviv - Israel",
+  "name": "Bohemia Rhapsody",
+  "email": "bohemia.rhapsody@example.com",
+  "address": "JAVA TAVA lego Land , Ontario Switzerland",
   "dateOfBirth": "1980-09-09",
   "registeredDate": "2025-12-26"
 }

@@ -60,6 +60,17 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- FlywayDB for constraints addition in DB to make sure
+         a. To run for this in only once
+         b. Track execution in flyway_schema_history
+         c. Safe across environments
+         d. Supports rollback strategy-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>10.10.0</version>
+        </dependency>
+
         <!-- Kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>

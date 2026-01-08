@@ -19,6 +19,16 @@ public class CachedPatient {
 
     private Instant updatedAt;
 
+    public CachedPatient(){
+    }
+
+    public CachedPatient(UUID id, String fullName, String email, Instant updatedAt) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.updatedAt = updatedAt;
+    }
+
     public UUID getId() {
         return id;
     }

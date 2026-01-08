@@ -1,11 +1,10 @@
 package com.pm.appointmentservice.controller;
 
+import com.pm.appointmentservice.dto.AppointmentRequestDto;
 import com.pm.appointmentservice.dto.AppointmentResponseDto;
 import com.pm.appointmentservice.service.AppointmentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,7 +28,11 @@ public class AppointmentController {
         return appointmentService.getAppointmentByDateRange(from, to);
     }
 
-
+    @PostMapping
+    public ResponseEntity<AppointmentResponseDto> createAppointment(@RequestBody AppointmentRequestDto appointmentRequestDTO){
+        AppointmentResponseDto appointmentResponseDto = appointmentService.createAppointment(appointmentRequestDTO);
+        return ResponseEntity.ok().body(appointmentResponseDto);
+    }
 
 
 

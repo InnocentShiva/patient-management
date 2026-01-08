@@ -1,0 +1,13 @@
+### POST request to example server
+#POST http://localhost:4006/appointments
+POST http://localhost:4004/api/appointments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "patientId": "123e4567-e89b-12d3-a456-426614174000",
+  "startTime": "2025-05-20T00:10:00",
+  "endTime": "2025-05-20T00:10:30",
+  "reason": "Chronic illness"
+}
+###

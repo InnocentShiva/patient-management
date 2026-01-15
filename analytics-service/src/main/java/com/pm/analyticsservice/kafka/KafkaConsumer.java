@@ -1,5 +1,6 @@
 package com.pm.analyticsservice.kafka;
 
+import appointment.events.AppointmentEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
@@ -22,7 +23,40 @@ public class KafkaConsumer {
                     patientEvent.getPatientId(),patientEvent.getName(),patientEvent.getEmail());
 
         } catch (InvalidProtocolBufferException e) {
-            log.error("Error deserializing the event {} ",e.getMessage());
+            log.error("Error deserializing the patient create event {} ",e.getMessage());
         }
     }
+
+    @KafkaListener(topics = "appointment.created", groupId = "analytics-service")
+    public void consumeAppointmentCreateEvent(byte[] event){
+        try {
+            AppointmentEvent appointmentUpdateEvent = AppointmentEvent.parseFrom(event);
+            //----- ...............Perform any business logic related to analytics here
+            log.info("Received appointment created event: [AppointmentId = {}," +
+                            "DoctorId = {}, Start-time = {}, End-time = {} , reason = {} " +
+                            "Event-Type = {}]",
+                    appointmentUpdateEvent.getAppointmentId(), appointmentUpdateEvent.getDoctorId(),
+                    appointmentUpdateEvent.getStartTime(), appointmentUpdateEvent.getEndTime(),
+                    appointmentUpdateEvent.getReason(),  appointmentUpdateEvent.getEventType());
+        } catch (InvalidProtocolBufferException e) {
+            log.error("Error deserializing the appointment create event {} ",e.getMessage());
+        }
+    }
+
+    @KafkaListener(topics = "appointment.updated", groupId = "analytics-service")
+    public void consumeAppointmentUpdateEvent(byte[] event){
+        try {
+            AppointmentEvent appointmentEvent = AppointmentEvent.parseFrom(event);
+            //----- ...............Perform any business logic related to analytics here
+            log.info("Received appointment updated event: [AppointmentId = {}," +
+                    "DoctorId = {}, Start-time = {}, End-time = {} , reason = {} " +
+                            "Event-Type = {}]",
+                    appointmentEvent.getAppointmentId(), appointmentEvent.getDoctorId(),
+                    appointmentEvent.getStartTime(), appointmentEvent.getEndTime(),
+                    appointmentEvent.getReason(),  appointmentEvent.getEventType());
+        } catch (InvalidProtocolBufferException e) {
+            log.error("Error deserializing the appointment update event {} ",e.getMessage());
+        }
+    }
+
 }

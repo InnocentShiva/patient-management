@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package appointment.events;
+option java_multiple_files = true;
+
+message AppointmentEvent {
+  string appointmentId = 1;
+  string doctorId = 2;
+  string start_time = 3;
+  string end_time = 4;
+  string reason = 5;
+  string event_type = 6;
+}

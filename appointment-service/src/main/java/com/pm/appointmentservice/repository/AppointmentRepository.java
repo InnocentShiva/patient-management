@@ -22,6 +22,46 @@ public interface AppointmentRepository extends JpaRepository<Appointment, UUID> 
             LocalDateTime endTime
     );
 
+    @Query("""
+            SELECT a FROM Appointment a
+            WHERE a.doctorId = :doctorId
+              AND a.id <> :appointmentId
+              AND a.startTime < :endTime
+              AND a.endTime > :startTime""")
+    List<Appointment> findDoctorOverlapsExcludingCurrent(
+            UUID doctorId,
+            UUID appointmentId,
+            LocalDateTime startTime,
+            LocalDateTime endTime
+    );
+
+
+    @Query("""
+            SELECT a FROM Appointment a
+            WHERE a.doctorId = :doctorId
+              AND a.startTime < :endTime
+              AND a.endTime > :startTime""")
+    List<Appointment> findDoctorOverlaps(
+            UUID doctorId,
+            LocalDateTime startTime,
+            LocalDateTime endTime
+    );
+
+    @Query("""
+            SELECT a FROM Appointment a
+            WHERE a.patientId = :patientId
+              AND a.startTime < :endTime
+              AND a.endTime > :startTime
+            """)
+    List<Appointment> findPatientOverlapsExcludingCurrent(
+            UUID patientId,
+            UUID appointmentId,
+            LocalDateTime startTime,
+            LocalDateTime endTime
+    );
     List<Appointment> findByStartTimeBetween(LocalDateTime from, LocalDateTime to);
+
+    boolean existsByIdAndPatientId(UUID id,UUID patientId);
+
 
 }

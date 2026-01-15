@@ -1,59 +1,38 @@
-package com.pm.appointmentservice.entity;
+package com.pm.appointmentservice.dto;
 
-
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
-public class Appointment {
+public class UpdateAppointmentRequestDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull(message = "appointmentId is required")
     private UUID id;
 
     @NotNull(message = "patientId is required")
-    @Column(nullable = false)
     private UUID patientId;
 
     @NotNull(message = "doctorId is required")
-    @Column(nullable = false)
     private UUID doctorId;
 
     @NotNull(message = "startTime is required")
-    @Column(nullable = false)
-    @Future(message = "startTime must be in future")
+    @Future(message = "startTime must be in the future")
     private LocalDateTime startTime;
 
     @NotNull(message = "endTime is required")
-    @Column(nullable = false)
-    @Future(message = "endTime must be in future")
+    @Future(message = "endTime must be in the future")
     private LocalDateTime endTime;
 
-    @NotNull(message = "reason is required")
-    @Size(max = 255,message = "reason must 255 characters or less")
-    @Column(nullable = false, length = 255)
+    @NotBlank(message = "reason is required")
+    @Size(max = 255, message = "reason must be 255 characters or less")
     private String reason;
 
-    @Version
-    @Column(nullable = false)
-    private long version;
-
-    public Appointment(UUID patientId, UUID doctorId, LocalDateTime startTime, LocalDateTime endTime, String reason) {
-        this.patientId = patientId;
-        this.doctorId = doctorId;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.reason = reason;
-    }
-
-    public Appointment() {
-
-    }
+    // 👇 Optional, if not sent, defaults to 0
+    private Long version = 0L;
 
     public UUID getId() {
         return id;
@@ -103,11 +82,11 @@ public class Appointment {
         this.reason = reason;
     }
 
-    public long getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(long version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 }

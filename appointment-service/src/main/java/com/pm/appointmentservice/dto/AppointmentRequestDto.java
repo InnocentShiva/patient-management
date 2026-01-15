@@ -1,9 +1,11 @@
 package com.pm.appointmentservice.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.sql.Update;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -13,6 +15,9 @@ public class AppointmentRequestDto {
 
     @NotNull(message = "patientId is required")
     private UUID patientId;
+
+    @NotNull(message = "doctorId is required")
+    private UUID doctorId;
 
     @NotNull(message = "startTime is required")
     @Future(message = "startTime must be in the future")
@@ -31,8 +36,9 @@ public class AppointmentRequestDto {
 
     public AppointmentRequestDto() {}
 
-    public AppointmentRequestDto(UUID patientId, LocalDateTime startTime, LocalDateTime endTime, String reason, Instant updatedAt) {
+    public AppointmentRequestDto(UUID patientId, UUID doctorId, LocalDateTime startTime, LocalDateTime endTime, String reason, Instant updatedAt) {
         this.patientId = patientId;
+        this.doctorId = doctorId;
         this.startTime = startTime;
         this.endTime = endTime;
         this.reason = reason;
@@ -44,6 +50,14 @@ public class AppointmentRequestDto {
 
     public void setPatientId(UUID patientId) {
         this.patientId = patientId;
+    }
+
+    public UUID getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(UUID doctorId) {
+        this.doctorId = doctorId;
     }
 
     public LocalDateTime getStartTime() {

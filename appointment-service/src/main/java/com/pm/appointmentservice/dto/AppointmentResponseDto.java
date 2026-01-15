@@ -7,6 +7,7 @@ public class AppointmentResponseDto {
 
     private UUID id;
     private UUID patientId;
+    private UUID doctorId;
     private String patientName;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -16,10 +17,11 @@ public class AppointmentResponseDto {
 
     public AppointmentResponseDto() {}
 
-    public AppointmentResponseDto(UUID id, UUID patientId, String patientName,
+    public AppointmentResponseDto(UUID id, UUID patientId, UUID doctorId, String patientName,
                                   LocalDateTime startTime, LocalDateTime endTime, String reason, Long version) {
         this.id = id;
         this.patientId = patientId;
+        this.doctorId = doctorId;
         this.patientName = patientName;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -41,6 +43,14 @@ public class AppointmentResponseDto {
 
     public void setPatientId(UUID patientId) {
         this.patientId = patientId;
+    }
+
+    public UUID getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(UUID doctorId) {
+        this.doctorId = doctorId;
     }
 
     public String getPatientName() {

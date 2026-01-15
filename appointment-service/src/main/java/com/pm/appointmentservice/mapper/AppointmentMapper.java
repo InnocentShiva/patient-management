@@ -14,6 +14,7 @@ public class AppointmentMapper {
 //        appointment.setId(UUID.randomUUID());
         appointment.setReason(appointmentRequestDto.getReason());
         appointment.setPatientId(appointmentRequestDto.getPatientId());
+        appointment.setDoctorId(appointmentRequestDto.getDoctorId());
         appointment.setStartTime(appointmentRequestDto.getStartTime());
         appointment.setEndTime(appointmentRequestDto.getEndTime());
         return appointment;
@@ -24,8 +25,10 @@ public class AppointmentMapper {
         appointmentResponseDto.setId(appointment.getId());
         appointmentResponseDto.setReason(appointment.getReason());
         appointmentResponseDto.setPatientId(appointment.getPatientId());
+        appointmentResponseDto.setDoctorId(appointment.getDoctorId());
         appointmentResponseDto.setStartTime(appointment.getStartTime());
         appointmentResponseDto.setEndTime(appointment.getEndTime());
+        appointmentResponseDto.setVersion(appointment.getVersion());
         return appointmentResponseDto;
     }
 

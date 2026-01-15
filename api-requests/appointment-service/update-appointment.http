@@ -1,0 +1,15 @@
+### Update request to example server
+PUT http://localhost:4006/appointments
+#PUT http://localhost:4004/api/appointments
+#Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "id": "33333333-3333-3333-3333-333333333333",
+  "patientId": "4922341c-65df-4cbb-b57e-d4255bc4bc99",
+  "doctorId" : "447ba33b-d636-47ae-b5a9-f569f5b93e3a",
+  "startTime": "2026-05-20T00:10:00",
+  "endTime": "2026-05-20T00:10:30",
+  "reason": "Initial Appointment"
+}
+###

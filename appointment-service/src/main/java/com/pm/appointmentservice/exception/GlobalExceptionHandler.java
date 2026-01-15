@@ -51,4 +51,60 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errors);
     }
 
+
+    @ExceptionHandler(AppointmentNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleWrongAppointmentNotFoundException(AppointmentNotFoundException ex) {
+        log.warn("Appointment not found {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Appointment not found");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(IdAndPatientIdNotCoexistsException.class)
+    public ResponseEntity<Map<String, String>> handleWrongIdAndPatientIdNotCoexistsException(IdAndPatientIdNotCoexistsException ex) {
+        log.warn("Appointment not related to Patient {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Appointment not related to Patient");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(IllegalSlotBoundaryException.class)
+    public ResponseEntity<Map<String, String>> handleWrongIllegalSlotBoundaryException(IllegalSlotBoundaryException ex) {
+        log.warn("Illegal boundary of start or end time {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Illegal boundary of start or end time");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(NoDoctorAvailableException.class)
+    public ResponseEntity<Map<String, String>> handleWrongNoDoctorAvailableException(NoDoctorAvailableException ex) {
+        log.warn("Doctor availability not found {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Doctor availability not found");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(DoctorSlotUnavailabilityException.class)
+    public ResponseEntity<Map<String, String>> handleWrongDoctorSlotUnavailabilityException(DoctorSlotUnavailabilityException ex) {
+        log.warn("Slot outside doctor's working hours {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Slot outside doctor's working hours");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(DoctorAlreadyAppointmentException.class)
+    public ResponseEntity<Map<String, String>> handleWrongDoctorAlreadyAppointmentException(DoctorAlreadyAppointmentException ex) {
+        log.warn("Doctor already has appointment in this slot {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Doctor already has appointment in this slot ");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(PatientAlreadyHasAppointmentException.class)
+    public ResponseEntity<Map<String, String>> handleWrongPatientAlreadyHasAppointmentException(PatientAlreadyHasAppointmentException ex) {
+        log.warn("Patient already has appointment in this slot {}",ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Patient already has appointment in this slot");
+        return ResponseEntity.badRequest().body(errors);
+    }
 }

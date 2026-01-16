@@ -1,6 +1,6 @@
 SnapsOfIntelligUltimateEditionVerImp/
 logs/
-.idea/
+#.idea/
 # Dependencies
 node_modules/
 

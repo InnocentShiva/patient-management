@@ -173,10 +173,10 @@ public class AppointmentService {
 
         return appointmentResponseDto;
 
+    }
 
-
-
-
+    public void deleteAppointment(UUID id){
+        appointmentRepository.deleteById(id);
     }
 
 
@@ -205,6 +205,26 @@ public class AppointmentService {
 
                     return appointmentResponseDto;
                 }).toList();
+    }
+
+
+    public List<AppointmentResponseDto> getAppointments(){
+        List<Appointment> appointments = appointmentRepository.findAll();
+
+        List<AppointmentResponseDto> appointmentsResponseDtos =  appointments.stream()
+                .map(AppointmentMapper::toDto).toList();
+
+        return appointmentsResponseDtos.stream()
+                .map(this::getNameOfPatient).toList();
+    }
+
+    private  AppointmentResponseDto getNameOfPatient(AppointmentResponseDto appointmentResponseDto ){
+        UUID patientid = appointmentResponseDto.getPatientId();
+        String fullname = String.valueOf(cachedPatientRepository.findById(patientid)
+                .map(CachedPatient::getFullName)
+                .orElse("Unknown"));
+        appointmentResponseDto.setPatientName(fullname);
+        return appointmentResponseDto;
     }
 
     private void validatePatientExists(UUID patientId) {

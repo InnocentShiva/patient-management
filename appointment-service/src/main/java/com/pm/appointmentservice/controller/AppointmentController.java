@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/appointments")
@@ -21,12 +22,18 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    @GetMapping
+    @GetMapping("/by-date")
     public List<AppointmentResponseDto> getAppointmentsByDateRange(
         @RequestParam LocalDateTime from,
         @RequestParam LocalDateTime to
     ){
         return appointmentService.getAppointmentByDateRange(from, to);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<AppointmentResponseDto>> getAppointmentrecords() {
+        List<AppointmentResponseDto> appointments = appointmentService.getAppointments();
+            return ResponseEntity.ok().body(appointments);
     }
 
     @PostMapping
@@ -40,6 +47,12 @@ public class AppointmentController {
         AppointmentResponseDto appointmentResponseDto = appointmentService.updateAppointment(updateAppointmentRequestDTO,
                 updateAppointmentRequestDTO.getId(), updateAppointmentRequestDTO.getPatientId());
         return ResponseEntity.ok().body(appointmentResponseDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<AppointmentResponseDto> deleteAppointment(@PathVariable UUID id){
+        appointmentService.deleteAppointment(id);
+        return ResponseEntity.noContent().build();
     }
 
 
